@@ -13,6 +13,8 @@ float fPlayerA = 0.0f;
 int nMapHeight = 16;
 int nMapWidth = 16;
 
+int fFOV = 3.14159 / 4.0;
+
 int main() {
 	// Create Screen Buffer
 	wchar_t* screen = new wchar_t[nScreenWidth * nScreenHeight];
@@ -43,7 +45,12 @@ int main() {
 
 	// Game loop
 	while (true) {
+		for (int x = 0; x < nScreenWidth; ++x) {
+			// Potter Algorithm: Calculating the projected ray angle into world space
+			float fRayAngle = (fPlayerA - fFOV / 2.0f) + ((float)x / (float)nScreenWidth) * fFOV;
 
+			
+		}
 	}
 
 	screen[nScreenWidth * nScreenHeight - 1] = '\0';
